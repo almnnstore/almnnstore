@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almnnstore | Premium Access</title>
+    <style>
+        :root { --bg: #090a0f; --card: #15171e; --accent: #7c3aed; --text: #ffffff; --text-muted: #94a3b8; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; min-height: 100vh; }
+        .container { width: 100%; max-width: 450px; }
+
+        .header { background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 30px; border-radius: 24px; text-align: center; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2); }
+        .card-depth { background: var(--card); padding: 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 20px 20px 60px #06070a, -20px -20px 60px #242732; }
+        
+        .sub-box { border: 1px dashed #4b5563; padding: 15px; border-radius: 16px; margin: 20px 0; font-size: 0.85rem; color: #e2e8f0; background: rgba(0,0,0,0.2); }
+        .btn-qty { background: #1f2937; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        .btn-buy { background: var(--accent); color: white; border: none; padding: 14px 40px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4); }
+        
+        .pay-item { background: #1a1c24; padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 5px 5px 15px #0e1014, -5px -5px 15px #262a34; cursor: pointer; transition: 0.3s; }
+        .pay-item:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .pay-title { color: var(--text-muted); font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
+        .pay-val { font-size: 0.9rem; margin-top: 6px; font-family: monospace; color: #fff; }
+        
+        .qris-box { background: #fff; color: #000; padding: 20px; border-radius: 16px; text-align: center; border: 4px solid var(--accent); margin-top: 25px; cursor: pointer; font-weight: 800; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        
+        /* Tambahan Testimoni */
+        .testi-container { margin-top: 40px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1 style="margin:0; font-size: 1.8rem;">Almnnstore</h1>
+    </div>
+
+    <div class="card-depth">
+        <h2 style="margin:0;">ChatGPT Plus (1 Month)</h2>
+        <div class="sub-box">✨ <b>Subscription Special:</b> Get it for only $<span id="price-val">1.00</span>!</div>
+        
+        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px;">
+            <span style="color:var(--text-muted);">Quantity:</span>
+            <button class="btn-qty" onclick="updateQty(-1)">-</button>
+            <span id="qty" style="font-weight:bold; font-size: 1.2rem;">1</span>
+            <button class="btn-qty" onclick="updateQty(1)">+</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div><s style="color: var(--text-muted);">$1.50</s> <div style="font-size: 1.6rem; font-weight: bold;">$<span id="total-price">1.00</span></div></div>
+            <button class="btn-buy" onclick="sendToTelegram()">Buy Now</button>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 30px;">💳 PAYMENT METHODS</h3>
+    <div class="pay-item" onclick="copyText('1240145027')"><div class="pay-title">BINANCE ID</div><div class="pay-val">1240145027</div></div>
+    <div class="pay-item" onclick="copyText('0x2133bf418da055b2d458abee00744cb5511b4afa')"><div class="pay-title">USDT (BEP20)</div><div class="pay-val">0x2133...4afa</div></div>
+    <div class="pay-item" onclick="copyText('TKj6zmNPBwLck3U6bN1aoEWwDdzNPJ9Wwc')"><div class="pay-title">USDT (TRC20)</div><div class="pay-val">TKj6...J9Wwc</div></div>
+    <div class="pay-item" onclick="copyText('UQAAfUv_3Kz28XM3-WXw9pPjHISBqUHGxvGvK7CIo1GLhZeT')"><div class="pay-title">TONKEEPER</div><div class="pay-val">UQA...hZeT</div></div>
+    
+    <a href="https://drive.google.com/file/d/1yqzzvFlfeOQaPXzjk_0Qe4CppTkf9SEp/view?usp=sharing" download="QRIS_ALANSTORE.png" style="text-decoration:none;">
+        <div class="qris-box">
+            <div style="font-size: 1.1rem;">QRIS - Warung Alamin</div>
+        </div>
+    </a>
+
+    <div class="testi-container">
+        <h3 style="text-align:center;">⭐ TESTIMONI</h3>
+        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="alamnn/1" data-width="100%"></script>
+    </div>
+</div>
+
+<script>
+    let qty = 1;
+    function updateQty(c) { 
+        qty = Math.max(1, qty+c); 
+        document.getElementById('qty').innerText = qty; 
+        document.getElementById('total-price').innerText = (qty * 1.00).toFixed(2);
+        document.getElementById('price-val').innerText = (qty * 1.00).toFixed(2);
+    }
+    function copyText(t) { navigator.clipboard.writeText(t); alert("Alamat disalin!"); }
+    function sendToTelegram() { window.open("https://t.me/alamnn?text=" + encodeURIComponent("Halo, saya mau beli ChatGPT Plus di Almnnstore")); }
+</script>
+</body>
+</html>
