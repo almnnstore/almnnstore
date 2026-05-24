@@ -1,113 +1,131 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almnnstore | Premium Access</title>
+    <title>Almnnstore | ChatGPT Plus Upgrade</title>
     <style>
         :root { --bg: #090a0f; --card: #15171e; --accent: #7c3aed; --text: #ffffff; --text-muted: #94a3b8; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; min-height: 100vh; }
-        .container { width: 100%; max-width: 450px; }
-
-        .header { background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 30px; border-radius: 24px; text-align: center; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2); }
-        .card-depth { background: var(--card); padding: 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-        
-        .sub-box { border: 1px dashed #4b5563; padding: 15px; border-radius: 16px; margin: 20px 0; font-size: 0.9rem; color: #e2e8f0; background: rgba(0,0,0,0.2); text-align: center; }
-        .btn-qty { background: #1f2937; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 1.2rem; }
-        .btn-buy { background: var(--accent); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; margin-top: 15px; }
-        
-        .pay-item { background: #1a1c24; padding: 15px; border-radius: 12px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: 0.3s; }
+        body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 500px; }
+        .card-depth { background: var(--card); padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-qty { background: #374151; border: none; color: white; width: 50px; height: 50px; border-radius: 12px; cursor: pointer; font-size: 1.5rem; transition: background 0.2s; }
+        .btn-buy { background: var(--accent); color: white; padding: 18px; width: 100%; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; border: none; margin-top: 20px; }
+        .pay-item { background: #1a1c24; padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: 0.2s; }
         .pay-item:hover { border-color: var(--accent); }
-        .pay-title { color: var(--text-muted); font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
-        .pay-val { font-family: monospace; font-size: 0.85rem; color: #fff; margin-top: 5px; word-break: break-all; }
-        
-        .qris-box { background: #fff; color: #000; padding: 20px; border-radius: 16px; text-align: center; border: 4px solid var(--accent); margin-top: 25px; cursor: pointer; font-weight: 800; }
-        .testi-container { margin-top: 40px; }
+        .pay-label { font-size: 0.75rem; font-weight: bold; color: var(--accent); text-transform: uppercase; }
+        .pay-val { font-family: monospace; font-size: 0.85rem; word-break: break-all; margin-top: 5px; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-q { font-weight: bold; font-size: 0.9rem; color: #fff; }
+        .faq-a { font-size: 0.85rem; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1 style="margin:0; font-size: 1.8rem;">Almnnstore</h1>
+    <header style="text-align: center; margin-bottom: 30px; padding-top: 10px;">
+        <h1 style="margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text);">Almnn<span style="color: var(--accent);">store</span></h1>
+        <div style="display: inline-block; padding: 4px 12px; background: rgba(0, 208, 132, 0.1); border-radius: 20px; border: 1px solid #00d084; margin-top: 8px;">
+            <span style="color: #00d084; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;">● Service Online</span>
+        </div>
+    </header>
+
+    <div style="margin-bottom: 30px; text-align: center;">
+        <h3 style="margin-bottom: 15px;">🚀 WHY CHOOSE US?</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">⚡ Instant Delivery</div>
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">💎 High Quality</div>
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">🎧 24/7 Support</div>
+        </div>
     </div>
 
     <div class="card-depth">
-        <h2 style="margin:0; font-size: 1.2rem; text-align: center;">ChatGPT Plus (1 Month)</h2>
-        <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-            <button class="btn-qty" onclick="updateQty(-1)">-</button>
-            <span id="qty" style="margin: 0 20px; font-size: 1.5rem; font-weight: bold;">1</span>
-            <button class="btn-qty" onclick="updateQty(1)">+</button>
+        <h2 style="text-align:center; margin-top:0;">ChatGPT Plus Upgrade</h2>
+        <div style="background: rgba(124, 58, 237, 0.1); border: 1px solid var(--accent); padding: 15px; border-radius: 12px; text-align: center;">
+            <p style="margin: 0; font-size: 0.9rem;"><b>Important:</b> Please <b>provide your Session Token</b> via Telegram after payment.</p>
         </div>
-        
-        <div class="sub-box">
-            Total Harga: <br>
-            <b style="font-size: 1.6rem; color: #00d084;">$ <span id="total-price">1.00</span> USD</b><br>
-            <span style="font-size: 0.8rem; color:var(--text-muted);">Estimasi: Rp <span id="total-idr">16.100</span></span>
+
+        <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-top: 20px;">Quantity:</label>
+        <div style="display:flex; align-items:center; justify-content:center; gap:25px; margin:15px 0;">
+            <button class="btn-qty" onclick="changeQty(-1)">-</button>
+            <span id="qty-display" style="font-size:2.2rem; font-weight:bold; min-width:60px; text-align:center;">1</span>
+            <button class="btn-qty" onclick="changeQty(1)">+</button>
         </div>
-        
-        <button class="btn-buy" onclick="sendToTelegram()">Beli Sekarang</button>
+
+        <div style="text-align: center; margin-bottom: 20px; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px;">
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 10px 0;">
+                <b>Pricing:</b> $1.50 (1st) + $1.00 (each next)<br>
+                <b>Warranty:</b> 1x replacement within 1 month. Claiming it ends the warranty.
+            </p>
+        </div>
+
+        <div style="border: 1px dashed #4b5563; padding: 20px; border-radius: 16px; text-align: center; background: rgba(0,0,0,0.2);">
+            <div style="font-size: 0.9rem; color: var(--text-muted);">Total Price:</div>
+            <b id="total-display" style="font-size: 2.2rem; color: #00d084;">$1.50 USD</b>
+        </div>
+        <button class="btn-buy" onclick="sendToTelegram()">Buy Now</button>
+    </div>
+
+    <h3 style="margin-top: 40px;">❓ FAQ</h3>
+    <div class="faq-item">
+        <div class="faq-q">How to get my Session Token?</div>
+        <div class="faq-a">I will guide you step-by-step on Telegram after payment. It's very easy!</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">Is this service safe?</div>
+        <div class="faq-a">Yes, we prioritize account security and privacy for every customer.</div>
     </div>
 
     <h3 style="margin-top: 30px;">💳 PAYMENT METHODS</h3>
-    
-    <div class="pay-item" onclick="copyText('1240145027')">
-        <div class="pay-title">BINANCE ID</div>
+    <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-bottom: 15px;">
+        We accept USDT on all these networks.
+    </div>
+
+    <div class="pay-item" onclick="copyText('1240145027')" style="border: 2px solid var(--accent);">
+        <div class="pay-label" style="color: var(--accent);">BINANCE ID (Recommended)</div>
         <div class="pay-val">1240145027</div>
     </div>
-    <div class="pay-item" onclick="copyText('0x2133bf418da055b2d458abee00744cb5511b4afa')">
-        <div class="pay-title">USDT (BEP20)</div>
-        <div class="pay-val">0x2133bf418da055b2d458abee00744cb5511b4afa</div>
-    </div>
     <div class="pay-item" onclick="copyText('TKj6zmNPBwLck3U6bN1aoEWwDdzNPJ9Wwc')">
-        <div class="pay-title">USDT (TRC20)</div>
+        <div class="pay-label">USDT - TRC20 (TRON)</div>
         <div class="pay-val">TKj6zmNPBwLck3U6bN1aoEWwDdzNPJ9Wwc</div>
     </div>
     <div class="pay-item" onclick="copyText('0x2133bf418da055b2d458abee00744cb5511b4afa')">
-        <div class="pay-title">USDT (ERC20)</div>
+        <div class="pay-label">USDT - BEP20 (BSC)</div>
         <div class="pay-val">0x2133bf418da055b2d458abee00744cb5511b4afa</div>
     </div>
-    <div class="pay-item" onclick="copyText('UQAAfUv_3Kz28XM3-WXw9pPjHISBqUHGxvGvK7CIo1GLhZeT')">
-        <div class="pay-title">TONKEEPER</div>
-        <div class="pay-val">UQAAfUv_3Kz28XM3-WXw9pPjHISBqUHGxvGvK7CIo1GLhZeT</div>
+    <div class="pay-item" onclick="copyText('0x2133bf418da055b2d458abee00744cb5511b4afa')">
+        <div class="pay-label">USDT - ERC20 (Ethereum)</div>
+        <div class="pay-val">0x2133bf418da055b2d458abee00744cb5511b4afa</div>
+    </div>
+    <div class="pay-item" onclick="copyText('UQAAfUv_3Kz28XM3-WXw9pPjHISBqUHGxvGVk7CIo1GLhZeT')">
+        <div class="pay-label">TON COIN (Tonkeeper)</div>
+        <div class="pay-val">UQAAfUv_3Kz28XM3-WXw9pPjHISBqUHGxvGVk7CIo1GLhZeT</div>
     </div>
 
+    <h3 style="margin-top: 30px;">🌏 LOCAL & CNY PAYMENT</h3>
     <a href="https://drive.google.com/file/d/1yqzzvFlfeOQaPXzjk_0Qe4CppTkf9SEp/view" style="text-decoration:none;">
-        <div class="qris-box">
-            QRIS - Warung Alamin
-            <div style="font-size: 0.8rem; font-weight: normal; margin-top: 5px; color: #555;">
-                ✅ Support: <b>Alipay & RMB</b>
-            </div>
+        <div style="background: #fff; color: #000; padding: 20px; border-radius: 16px; text-align: center; border: 4px solid var(--accent);">
+            <b>SCAN QRIS CODE</b>
+            <div style="font-size: 0.8rem; margin-top: 5px;">Support: QRIS (IDR) & Alipay/RMB (CNY)</div>
         </div>
     </a>
 
-    <div class="testi-container">
-        <h3 style="text-align:center;">⭐ TESTIMONI</h3>
+    <div style="margin-top: 40px;">
+        <h3 style="text-align:center;">⭐ TESTIMONIALS</h3>
         <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="alamnn/1" data-width="100%"></script>
     </div>
 </div>
 
 <script>
-    let pricePerItem = 1.00;
-    let rate = 16100;
     let qty = 1;
-
-    function updateQty(c) { 
-        qty = Math.max(1, qty + c); 
-        document.getElementById('qty').innerText = qty; 
-        document.getElementById('total-price').innerText = (qty * pricePerItem).toFixed(2);
-        document.getElementById('total-idr').innerText = (qty * pricePerItem * rate).toLocaleString('id-ID');
-    }
-
-    function copyText(t) { 
-        navigator.clipboard.writeText(t); 
-        alert("Alamat pembayaran berhasil disalin!"); 
-    }
-    
+    function changeQty(n) { qty = Math.max(1, qty + n); document.getElementById('qty-display').innerText = qty; updateTotal(); }
+    function updateTotal() { let total = 1.50 + ((qty - 1) * 1.00); document.getElementById('total-display').innerText = "$" + total.toFixed(2) + " USD"; }
     function sendToTelegram() { 
-        let text = "Halo, saya mau beli " + qty + " akun ChatGPT Plus. Total: $" + (qty * pricePerItem).toFixed(2);
-        window.open("https://t.me/alamnn?text=" + encodeURIComponent(text)); 
+        let total = (1.50 + ((qty - 1) * 1.00)).toFixed(2);
+        let msg = `🔥 NEW ORDER REQUEST 🔥\n\nQuantity: ${qty} Account(s)\nTotal: $${total} USD\n\nStatus: Waiting for Session Token from buyer.`;
+        window.open("https://t.me/ahlaminn?text=" + encodeURIComponent(msg)); 
     }
+    function copyText(t) { navigator.clipboard.writeText(t); alert("Address copied!"); }
 </script>
 </body>
 </html>
