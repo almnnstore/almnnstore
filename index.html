@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almnnstore | ChatGPT Plus Trial Access</title>
+    <title>Almnnstore | ChatGPT Plus</title>
     <style>
         :root { --bg: #090a0f; --card: #15171e; --accent: #7c3aed; --text: #ffffff; --text-muted: #94a3b8; }
         body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
@@ -119,47 +119,73 @@
         }
 
 
-        /* Ultra compact override for mobile */
+        /* Premium checkout refinements */
         .product-card-compact {
-            padding: 14px !important;
-            border-radius: 18px !important;
-            margin-top: 18px !important;
+            padding: 16px !important;
+            border-radius: 22px !important;
+            background:
+                radial-gradient(circle at top right, rgba(124,58,237,0.18), transparent 34%),
+                linear-gradient(180deg, #181b24 0%, #0f1118 100%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.42) !important;
         }
         .product-title-compact {
-            font-size: 1.25rem !important;
+            font-size: 1.32rem !important;
             margin: 0 0 12px !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.6px !important;
         }
         .important-compact {
-            padding: 9px 11px !important;
-            border-radius: 12px !important;
+            background: transparent !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            padding: 12px 13px !important;
+            border-radius: 16px !important;
+            text-align: left !important;
             font-size: 0.76rem !important;
-            line-height: 1.35 !important;
+            line-height: 1.5 !important;
+        }
+        .important-title {
+            color: #c4b5fd !important;
+            font-size: 0.68rem !important;
+            font-weight: 900 !important;
+            letter-spacing: .7px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 6px !important;
+        }
+        .important-text {
+            margin: 0 !important;
+            color: var(--text-muted) !important;
+        }
+        .important-text b {
+            color: #fff !important;
         }
         .qty-row-compact {
             margin-top: 10px !important;
-            padding: 9px 11px !important;
-            border-radius: 13px !important;
-            gap: 8px !important;
-        }
-        .qty-controls-compact {
-            gap: 8px !important;
+            padding: 8px 10px !important;
+            border-radius: 15px !important;
+            background: rgba(255,255,255,0.035) !important;
+            border: 1px solid rgba(255,255,255,0.07) !important;
         }
         .qty-controls-compact .btn-qty {
-            width: 34px !important;
-            height: 34px !important;
+            width: 32px !important;
+            height: 32px !important;
             border-radius: 10px !important;
-            font-size: 1rem !important;
+            font-size: 0.95rem !important;
+            background: #303847 !important;
         }
         #qty-display {
-            font-size: 1.35rem !important;
+            font-size: 1.28rem !important;
             min-width: 28px !important;
         }
         .pricing-compact {
             margin-top: 9px !important;
-            padding: 9px 11px !important;
-            border-radius: 12px !important;
-            font-size: 0.72rem !important;
-            line-height: 1.35 !important;
+            padding: 10px 12px !important;
+            border-radius: 15px !important;
+            background: transparent !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            font-size: 0.73rem !important;
+            line-height: 1.45 !important;
+            text-align: left !important;
         }
         .checkout-row-compact {
             display: flex !important;
@@ -168,25 +194,30 @@
             align-items: stretch !important;
         }
         .total-compact {
-            flex: 1.1 !important;
+            flex: 1.05 !important;
             padding: 10px 8px !important;
-            border-radius: 13px !important;
-        }
-        .total-compact div {
-            font-size: 0.72rem !important;
-            margin-bottom: 2px !important;
+            border-radius: 16px !important;
+            background: rgba(0,208,132,0.07) !important;
+            border: 1px solid rgba(0,208,132,0.35) !important;
         }
         .total-compact b {
-            font-size: 1.35rem !important;
+            font-size: 1.34rem !important;
         }
         .checkout-row-compact .btn-buy {
-            flex: 0.9 !important;
+            flex: 0.95 !important;
             margin-top: 0 !important;
             padding: 10px 8px !important;
-            border-radius: 13px !important;
-            font-size: 0.78rem !important;
+            border-radius: 16px !important;
+            font-size: 0.8rem !important;
             min-height: 58px !important;
-            box-shadow: 0 8px 22px rgba(124,58,237,0.28) !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            box-shadow: 0 12px 30px rgba(124,58,237,0.32) !important;
+        }
+        .why-section {
+            margin-top: 28px !important;
+            margin-bottom: 26px !important;
+            text-align: center !important;
         }
         @media (max-width: 380px) {
             .checkout-row-compact {
@@ -210,28 +241,22 @@
         </div>
     </header>
 
-    <div style="margin-bottom: 30px; text-align: center;">
-        <h3 style="margin-bottom: 15px;">🚀 WHY CHOOSE US?</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">⚡ Instant Delivery</div>
-            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">💎 High Quality</div>
-            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">🎧 24/7 Support</div>
-        </div>
-    </div>
+
 
     <div class="product-card-compact">
-        <h2 class="product-title-compact">ChatGPT Plus Trial Access</h2>
-        <p style="margin: -6px 0 12px; text-align: center; color: var(--text-muted); font-size: 0.78rem; line-height: 1.4;">
-            For eligible accounts that have not previously subscribed to ChatGPT Plus.
-        </p>
+        <h2 class="product-title-compact">ChatGPT Plus</h2>
 
         <div class="important-compact">
-            <p style="margin: 0;"><b>Important:</b> Please <b>provide your Session Token</b> via Telegram after payment.</p>
+            <div class="important-title">Important</div>
+            <p class="important-text">
+                Available for accounts that have not previously subscribed to ChatGPT Plus.<br>
+                <b>Session Token required after payment.</b>
+            </p>
         </div>
 
         <div class="qty-row-compact">
             <div>
-                <label style="font-size: 0.85rem; color: var(--text-muted); display: block;">Quantity:</label>
+                <label style="font-size: 0.82rem; color: var(--text-muted); display: block;">Quantity</label>
             </div>
             <div class="qty-controls-compact">
                 <button class="btn-qty" onclick="changeQty(-1)">-</button>
@@ -241,20 +266,29 @@
         </div>
 
         <div class="pricing-compact">
-            <b>Pricing:</b> $1.50 (1st) + $1.00 (each next)<br>
-            <b>Warranty:</b> 1x replacement within 1 month. Claiming it ends the warranty.
+            <b style="color:#fff;">Pricing:</b> $1.50 (1st) + $1.00 (each next)<br>
+            <b style="color:#fff;">Warranty:</b> 1x replacement within 1 month. Claiming it ends the warranty.
         </div>
 
         <div class="checkout-row-compact">
             <div class="total-compact">
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Total Price:</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 3px;">Total Price</div>
                 <b id="total-display">$1.50 USD</b>
             </div>
-            <button class="btn-buy" onclick="sendToTelegram()">Buy Now</button>
+            <button class="btn-buy" onclick="sendToTelegram()">Order Now →</button>
         </div>
     </div>
 
-    <h3 style="margin-top: 40px;">❓ FAQ</h3>
+    <div class="why-section">
+        <h3 style="margin-bottom: 15px;">🚀 WHY CHOOSE US?</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">⚡ Instant Delivery</div>
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">💎 High Quality</div>
+            <div style="background: #15171e; padding: 10px; border-radius: 10px; font-size: 0.7rem;">🎧 24/7 Support</div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 34px;">❓ FAQ</h3>
     <div class="faq-item">
         <div class="faq-q">How to get my Session Token?</div>
         <div class="faq-a">I will guide you step-by-step on Telegram after payment. It's very easy!</div>
@@ -310,7 +344,7 @@
     function updateTotal() { let total = 1.50 + ((qty - 1) * 1.00); document.getElementById('total-display').innerText = "$" + total.toFixed(2) + " USD"; }
     function sendToTelegram() { 
         let total = (1.50 + ((qty - 1) * 1.00)).toFixed(2);
-        let msg = `🔥 NEW TRIAL ACCESS ORDER 🔥\n\nProduct: ChatGPT Plus Trial Access\nQuantity: ${qty} Account(s)\nTotal: $${total} USD\n\nStatus: Waiting for Session Token from buyer.`;
+        let msg = `🔥 NEW ORDER REQUEST 🔥\n\nProduct: ChatGPT Plus\nQuantity: ${qty} Account(s)\nTotal: $${total} USD\n\nStatus: Waiting for Session Token from buyer.`;
         window.open("https://t.me/ahlaminn?text=" + encodeURIComponent(msg)); 
     }
     function copyText(t) { navigator.clipboard.writeText(t); alert("Address copied!"); }
